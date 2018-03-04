@@ -1,0 +1,26 @@
+<% my %data = %{$_[0]} %>
+<%= $data{name} %>
+
+<%= $data{phone} %>
+
+<%= $data{email} %>
+
+<%= $data{website} %>
+
+<%= $data{github} %>
+
+
+<% my @sections = (@{$data{main}}, @{$data{aside}}) %>
+<% for my $section (@sections) { %>
+<%$ $section->{name} %>
+
+<% for my $entry (@{$section->{entries}}) { %>
+  <%$ $entry->{role} ? "$entry->{role} @ " : "" %><%$ $entry->{name} %><%$ $entry->{when} ? " ($entry->{when})" : "" %>
+
+<% for my $description (@{$entry->{descriptions}}) { %>
+    - <%$ $description %>
+
+<% } %>
+<% } %>
+
+<% } %>

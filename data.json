@@ -1,0 +1,99 @@
+{
+    "name": "Massimo Siboldi",
+    "jobTitle": "Software Engineer, Front-End Focus",
+    "phone": "+1.650.996.3443",
+    "email": "mdsiboldi@gmail.com",
+    "website": "massimo.siboldi.com",
+    "github": "github.com/mdsib",
+    "main": [
+        {
+            "name": "Work Experience",
+            "entries": [
+                {
+                    "name": "Disqus",
+                    "role": "Javascript Engineer",
+                    "when": "2016",
+                    "descriptions": [
+                        "Used vanilla javascript, React, Redux, and backbone to improve commenting for millions of users.",
+                        "As part of an agile team, architected, implemented, and improved various features to improve Disqus' publisher satisfaction, including the publisher registration flow, moderation tools, and publisher analytics.",
+                        "Headed initial transition of the admin site's state management to Redux."
+                    ]
+                },
+                {
+                    "name": "Magnifi",
+                    "role": "Software Engineer",
+                    "when": "2015 - 2016",
+                    "descriptions": [
+                        "Developed client-side features using Ember.js, ES6, Sass, and Handlebars to help music-lovers discover musicians playing near them.",
+                        "Worked with an A/B testing framework to make effective changes to Magnifi's registration page.",
+                        "Used test driven development on Magnifi's Rails backend to work on event ingestion."
+                    ]
+                },
+                {
+                    "name": "Music Putty",
+                    "role": "Co-Founder, Lead Developer",
+                    "when": "2013 - 2015",
+                    "descriptions": [
+                        "Built client and server for a web application for independent musicians to gain exposure and revenue through crowdfunding, donations, and free streaming.",
+                        "Led a small team of engineers, helping to grow management, communication, and interdisciplinary skills."
+                    ]
+                }
+            ]
+        }, {
+            "name": "Projects",
+            "entries": [
+                {
+                    "name": "Synthing",
+                    "when": "2017 - 2018, work in progress",
+                    "descriptions": [
+                        "Developing a wavetable synthesizer for the browser, designed to visually explore and manipulate waveforms."
+                    ]
+                },
+                {
+                    "name": "FreeSound Synth",
+                    "when": "2014",
+                    "descriptions": [
+                        "Developed a web-based synthesizer, using sounds in the public domain to create soundscapes using granular synthesis techniques."
+                    ]
+                }
+            ]
+        }
+    ],
+    "aside": [
+        {
+            "name": "Education",
+            "entries": [
+                {
+                    "name": "California Polytechnic State University, San Luis Opispo",
+                    "when": "2010 - 2015",
+                    "descriptions": [
+                        "Interdisciplinary B.A. in Computer Science and Music through LAES."
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Skills",
+            "entries": [
+                {
+                    "name": "Languages",
+                    "descriptions": [
+                        "Javscript/ES6, Node.js, HTML5, CSS3, Sass, Less, MySQL, lisp (scheme & elisp)"
+                    ]
+                },
+                {
+                    "name": "Frameworks & Libraries",
+                    "descriptions": [
+                        "React, Preact, Redux, web components, Ember.js Angular.js (1.x), lodsh / underscore, jQuery, Knex.js, Ruby on Rails"
+                    ]
+                },
+                {
+                    "name": "Technologies & Programs",
+                    "descriptions": [
+                        "Git, GitHub, Phabricator, AWS, Heroku, Emacs, Vim, Vagrant, NixOS, Adobe Creative Suite"
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,7 @@
+This is a small, unpolished script that generates my ASCII and PDF resumes.
+* Requirements
+- perl
+- pdflatex
+- JSON, Text::Forge from CPAN
+* Running
+Just execute `go.pl`.

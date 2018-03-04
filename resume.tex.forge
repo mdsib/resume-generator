@@ -1,0 +1,99 @@
+<% my %json = %{$_[0]} %>
+
+<%# texify handles special character conversion, used in all places %>
+<% sub texify { return $_[0] =~ s/&/\\&/gr; } %>
+
+<%# formats string to a styled heading given an entry's role, name, and when %>
+<% sub subheading_string {
+    my $entry = $_[0];
+    return texify(
+        ($entry->{role}
+            ? ($entry->{role} . " \\textcolor{lightgray}{@} ")
+            : ""
+        ) . $entry->{name} .
+        ($entry->{when}
+            ? (" \\textcolor{lightgray}{\\normalsize ($entry->{when})}")
+            : ""
+        ))
+} %>
+
+\documentclass[11pt]{article}
+\usepackage{xcolor, lipsum}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{titlesec}
+\usepackage[UTF-8]{bera}
+\setlength{\parskip}{0.5cm plus4mm minus3mm}
+\pagenumbering{gobble}
+\renewcommand{\familydefault}{\sfdefault}
+
+\titleformat{\section}
+  {\compact\linespread{1.0}\Large\raggedright}
+{\thesection}{1em}{}
+\titlespacing{\section}{0pt}{*4}{*0.8}
+
+\titleformat{\subsection}
+  {\linespread{1.0}\large\raggedright}{\thesection}{1em}{}
+\titlespacing{\subsection}{0pt}{*1}{*0.5}
+
+\newcommand{\myname}{<%= texify($json{name}) %>}
+\newcommand{\mytitle}{<%= texify($json{jobTitle}) %>}
+\newcommand{\myphone}{<%= texify($json{phone}) %>}
+\newcommand{\myemail}{<%= texify($json{email}) %>}
+\newcommand{\mywebsite}{<%= texify($json{website}) %>}
+\newcommand{\mygithub}{<%= texify($json{github}) %>}
+
+\newcommand{\mymaketitle}{
+  \begin{minipage}[t]{1\textwidth}
+  \begin{minipage}[t]{0.5\textwidth}\begin{flushleft}
+
+  {\noindent\Large\myname}
+
+  {\large\mytitle}
+
+  \end{flushleft}\end{minipage}\begin{minipage}[t]{0.5\textwidth}\begin{flushright}
+
+   \noindent\myphone
+
+   \myemail
+
+   \mywebsite
+
+   \mygithub
+   \end{flushright}
+  \end{minipage}
+  \vspace{2em}
+  \end{minipage}
+}
+
+\definecolor{lightgray}{gray}{0.25}
+
+
+
+\begin{document}
+\noindent\hspace{-1mm}\mymaketitle{}\hspace{2mm}
+\begin{minipage}[t]{1\textwidth}
+\begin{minipage}[t]{0.68\textwidth}
+<% for my $section (@{$json{main}}) { %>
+  \section*{<%$ texify($section->{name}) %>}
+  <% for my $entry (@{$section->{entries}}) { %>
+    \subsection*{<%$ subheading_string($entry) %>}
+      \raggedright\textcolor{lightgray}{
+<% for my $description (@{$entry->{descriptions}}) { %>
+<%$ texify($description) %> \vspace{0.5em}
+<% } %>}\vspace{1em}
+<% } %>\vspace{1em}
+<% } %>
+\end{minipage}\hspace{0.04\textwidth}
+\begin{minipage}[t]{0.28\textwidth}
+<% for my $section (@{$json{aside}}) { %>
+\section*{\raggedright <%$ texify($section->{name}) %>}
+<% for my $entry (@{$section->{entries}}) { %>
+\subsection*{\raggedright <%$ subheading_string($entry) %>}
+\raggedright\textcolor{lightgray}{ <% for my $description (@{$entry->{descriptions}}) { %>
+<%$ texify($description) %>\vspace{0.5em}
+<% } %>}\vspace{1em}
+<% } %>\vspace{1em}
+<% } %>
+\end{minipage}
+\end{minipage}
+\end{document}
