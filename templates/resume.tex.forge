@@ -19,7 +19,7 @@
 
 \documentclass[11pt]{article}
 \usepackage{xcolor, lipsum}
-\usepackage[margin=1.5cm]{geometry}
+\usepackage[margin=1.3cm]{geometry}
 \usepackage{titlesec}
 \usepackage[UTF-8]{bera}
 \setlength{\parskip}{0.5cm plus4mm minus3mm}
@@ -77,11 +77,10 @@
   \section*{<%$ texify($section->{name}) %>}
   <% for my $entry (@{$section->{entries}}) { %>
     \subsection*{<%$ subheading_string($entry) %>}
-      \raggedright\textcolor{lightgray}{
 <% for my $description (@{$entry->{descriptions}}) { %>
-<%$ texify($description) %> \vspace{0.5em}
-<% } %>}\vspace{1em}
-<% } %>\vspace{1em}
+\raggedright\textcolor{lightgray}{<%$ texify($description) %>}\vspace{0.5em}\newline
+<% } %>
+<% } %>
 <% } %>
 \end{minipage}\hspace{0.04\textwidth}
 \begin{minipage}[t]{0.28\textwidth}
@@ -89,10 +88,10 @@
 \section*{\raggedright <%$ texify($section->{name}) %>}
 <% for my $entry (@{$section->{entries}}) { %>
 \subsection*{\raggedright <%$ subheading_string($entry) %>}
-\raggedright\textcolor{lightgray}{ <% for my $description (@{$entry->{descriptions}}) { %>
-<%$ texify($description) %>\vspace{0.5em}
-<% } %>}\vspace{1em}
-<% } %>\vspace{1em}
+<% for my $description (@{$entry->{descriptions}}) { %>
+\raggedright\textcolor{lightgray}{<%$ texify($description) %>}\vspace{0.5em}\newline
+<% } %>
+<% } %>
 <% } %>
 \end{minipage}
 \end{minipage}
