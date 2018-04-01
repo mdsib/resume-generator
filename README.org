@@ -5,4 +5,4 @@ This is a small, unpolished script that generates my ASCII and PDF resumes.
 - texlive, with extra packages
 - JSON, Text::Forge from CPAN
 * Running
-Just execute `go.pl`.
+Just execute =go.pl=.
